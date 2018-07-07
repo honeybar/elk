@@ -65,20 +65,29 @@ for x in 0..1..9 -> print x --basically the middle argument indicates the amount
 
 ### While loop
 ```
-while i < 5 => i := i + 1
+while i < 5 -> i := i + 1
+
+while i < 10 -> 
+    # if i % 2 = 0 -> print i 
+    # i = i + 1
+
+while i < 10 -> 
+    # if i % 2 = 0 -> 
+        ## print i 
+    # i = i + 1
     
 ```
 
 ### Object
 ```
+--using * to seperate different methods
 class book -> 
-    * self :=title -> -- for constructor
-        my.title := title, 
-        my.owned := True 
+    # self :=title -> -- for constructor can also be expressed as # self :=title -> my.title := title, my.owned := True 
+        ## my.title := title 
+        ## my.owned := True
         
-    * getTitle -> return title
-    
-    * setOwned -> my.owned := !my.owned
+    # getTitle -> return my.title
+    # setOwned -> my.owned := !my.owned
     
 ```
     
