@@ -77,9 +77,9 @@ while i < 10 -> {
 ### Object
 ```
 class book -> {
-    self :=title -> { 
+    self :=title, owned -> { 
         my.title := title 
-        my.owned := True
+        my.owned := owned
     }
     getTitle -> return my.title
     getOwned -> my.owned := !my.owned
