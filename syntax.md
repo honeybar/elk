@@ -55,6 +55,7 @@ fib2 := n -> {
         return fib(n-1) + fib(n-2)
     }
 }
+
 ```
 
 ### For loop
@@ -67,26 +68,21 @@ for x in 0..1..9 -> print x --basically the middle argument indicates the amount
 ```
 while i < 5 -> i := i + 1
 
-while i < 10 -> 
-    * if i % 2 = 0 -> print i 
-    * i = i + 1
-
-while i < 10 -> 
-    * if i % 2 = 0 -> 
-        ** print i 
-    * i = i + 1
-    
+while i < 10 -> {
+    if i % 2 = 0 -> print i 
+    i = i + 1
+}  
 ```
 
 ### Object
 ```
-class book -> 
-    * self :=title -> -- for constructor can also be expressed as # self :=title -> my.title := title, my.owned := True 
-        ** my.title := title 
-        ** my.owned := True
-        
-    * getTitle -> return my.title
-    * setOwned -> my.owned := !my.owned
-    
+class book -> {
+    self :=title -> { 
+        my.title := title 
+        my.owned := True
+    }
+    getTitle -> return my.title
+    getOwned -> my.owned := !my.owned
+} 
 ```
     
