@@ -80,7 +80,6 @@ while i < 10 ->
 
 ### Object
 ```
---using * to seperate different methods
 class book -> 
     # self :=title -> -- for constructor can also be expressed as # self :=title -> my.title := title, my.owned := True 
         ## my.title := title 
