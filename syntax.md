@@ -31,9 +31,9 @@ Argument types are optional - inferred if not specified
 ```
 square := x -> x*x
 -- {} blocks result in value that is returned, assuming they aren't structs
-square2 := x : int -> {
+square2 := x : int -> 
     return x*x
-}
+end
 
 c := square(10.0) -- results in 100.0
 d := square2(10.0) -- type error
@@ -48,41 +48,46 @@ helloworld -> return "hello world" -- convention for if no argument needed
 x := if a > 3 -> b else -> c -- single-line if (i.e. ternary operator)
 fib := n -> if n <= 1 -> 1 else -> fib(n-1) + fib(n-2) -- in function
 -- using blocks
-fib2 := n -> {
-    if n <= 1 -> {
+fib2 := n -> 
+    if n <= 1 -> 
         return 1
-    } else -> {
+    else -> 
         return fib(n-1) + fib(n-2)
-    }
-}
+    end
+end
 
 ```
 
 ### For loop
 ```
 for x in 0..9 -> print x
-for x in 0..1..9 -> print x --basically the middle argument indicates the amount of increment of each step in the loop
+
+for x in 0..1..9 -> --basically the middle argument indicates the amount of increment of each step in the loop
+    print x 
+end
+
 ```
 
 ### While loop
 ```
 while i < 5 -> i := i + 1
 
-while i < 10 -> {
+while i < 10 -> 
     if i % 2 = 0 -> print i 
     i = i + 1
-}  
+end  
 ```
 
 ### Object
 ```
-class book -> {
-    self :=title, owned -> { 
+class book -> 
+    self :=title, owned ->  
         my.title := title 
         my.owned := owned
-    }
+    end
+    
     getTitle -> return my.title
     getOwned -> my.owned := !my.owned
-} 
+end 
 ```
     
