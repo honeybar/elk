@@ -87,7 +87,7 @@ class book ->
     end
     
     getTitle -> return my.title
-    getOwned -> my.owned := !my.owned
+    getOwned -> return my.owned
 end 
 ```
     
