@@ -1,25 +1,31 @@
-import lark
+from lark import Lark
 
-parser = lark.Lark(r"""
-    block: [statement (/[;\n\f\r]+/ statement)*]
+parser = Lark(r"""
+    block: [statement (seperator statement)*]
+
+    seperator: /[;\n\f\r]+/
 
     name: /[a-zA-Z_]\w*/
+    
+    type: "Number"
+        | "String"
+        | "Boolean"
+        | "Nothing"
 
-    variable: name
-    type: name
+    statement: name ":=" value
+        | name ":" type ":=" value
+    
+    ?value: literal
 
-    statement: variable ":=" value
-        | variable ":" type ":=" value
-
-    value: dict
+    ?literal: dict
          | set
          | list
          | string
          | number
-         | bool
-         | null
+         | boolean
+         | nothing
     
-    null: "Null"
+    nothing: "Nothing"
 
     ws: /[ \t]+/
 
@@ -33,7 +39,7 @@ parser = lark.Lark(r"""
 
     dict : "{" [pair ("," pair)*] "}"
 
-    bool: "True" -> true
+    boolean: "True" -> true
         | "False" -> false
 
     pair : value ":" value
